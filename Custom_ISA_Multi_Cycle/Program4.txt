@@ -1,0 +1,21 @@
+Illustrating subtraction, jump on negative, swapping:
+
+Pseudo-code:
+1) add mem[6]
+2) mvc mem[7]
+3) sub mem[7]
+4) js mem[8]
+5) jmp mem[9]
+6) 16
+7) 22
+8) swp
+
+VHDL Test bench commands:-
+do_program (clk, write_en, addr, data, "00000001" , INSTR_add & "00000110");
+do_program (clk, write_en, addr, data, "00000010" , INSTR_mvc & "00000111");
+do_program (clk, write_en, addr, data, "00000011" , INSTR_sub & "00000111");
+do_program (clk, write_en, addr, data, "00000100" , INSTR_js  & "00001000");
+do_program (clk, write_en, addr, data, "00000101" , INSTR_js  & "00001001");
+do_program (clk, write_en, addr, data, "00000110" , X"0010");
+do_program (clk, write_en, addr, data, "00000111" , X"0016");
+do_program (clk, write_en, addr, data, "00001000" , INSTR_swp & "00000000");

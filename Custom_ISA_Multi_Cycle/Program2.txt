@@ -1,0 +1,24 @@
+Illustrating all logical operations and jump on parity:
+
+Pseudo-code:-
+1) not mem(6)
+2) or  mem(7)
+3) and mem(8)
+4) xor mem(9)
+5) jp 1)
+6) 6
+7) 7
+8) 8
+9) 9
+
+VHDL Test bench commands:-
+do_program (clk, write_en, addr, data, "00000001" , INSTR_not & "00000110");
+do_program (clk, write_en, addr, data, "00000010" , INSTR_or  & "00000111");
+do_program (clk, write_en, addr, data, "00000011" , INSTR_and & "00001000");
+do_program (clk, write_en, addr, data, "00000100" , INSTR_xor & "00001001");
+do_program (clk, write_en, addr, data, "00000101" , INSTR_jp  & "00000001");
+do_program (clk, write_en, addr, data, "00000110" , X"0006");
+do_program (clk, write_en, addr, data, "00000111" , X"0007");
+do_program (clk, write_en, addr, data, "00001000" , X"0008");
+do_program (clk, write_en, addr, data, "00001001" , X"0009");
+

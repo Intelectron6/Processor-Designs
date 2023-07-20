@@ -1,0 +1,22 @@
+Mutliplication by repeated addition:
+(uses move to counter, add, decrement, jump on zero, unconditional jump, store)
+
+Pseudo-code:-
+1) mvc mem[6]
+2) add mem[7]
+3) dec
+4) jz mem[8]
+5) jmp mem[2]
+6) 8
+7) 6
+8) str mem[9]
+
+VHDL Test bench commands:-
+do_program (clk, write_en, addr, data, "00000001" , INSTR_mvc & "00000110");
+do_program (clk, write_en, addr, data, "00000010" , INSTR_add & "00000111");
+do_program (clk, write_en, addr, data, "00000011" , INSTR_dec & "00000000");
+do_program (clk, write_en, addr, data, "00000100" , INSTR_jz  & "00001000");
+do_program (clk, write_en, addr, data, "00000101" , INSTR_jmp & "00000010");
+do_program (clk, write_en, addr, data, "00000110" , X"0008");
+do_program (clk, write_en, addr, data, "00000111" , X"0006");
+do_program (clk, write_en, addr, data, "00001000" , INSTR_str & "00001001");
